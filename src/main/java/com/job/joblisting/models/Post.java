@@ -7,13 +7,18 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "JobPost")
 public class Post {
 
+	private String id;
 	private String profile;
 	private String description;
 	private int experience;
 	private String technologies[];
+	
+	public void setId(String id) {
+		this.id = id;
+	}
 
-	public String getProfile() {
-		return profile;
+	public String getId() {
+		return id;
 	}
 
 	public void setProfile(String profile) {
@@ -34,12 +39,13 @@ public class Post {
 
 	@Override
 	public String toString() {
-		return "Post [profile=" + profile + ", description=" + description + ", experience=" + experience
+		return "Post [id=" + id + ", profile=" + profile + ", description=" + description + ", experience=" + experience
 				+ ", technologies=" + Arrays.toString(technologies) + "]";
 	}
 
-	public Post(String profile, String description, int experience, String[] technologies) {
+	public Post(String id, String profile, String description, int experience, String[] technologies) {
 		super();
+		this.id = id;
 		this.profile = profile;
 		this.description = description;
 		this.experience = experience;
